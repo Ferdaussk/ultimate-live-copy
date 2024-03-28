@@ -49,7 +49,7 @@ final class ultlcElementorPlugiN {
 			add_action( 'admin_notices', array( $this, 'ultlc_admin_notice_minimum_php_version' ) );
 			return;
 		}
-		require_once( 'from-basic-live-copy.php' );
+		require_once( 'basic-live-copy.php' );
 	}
 
 	public function ultlc_admin_notice_minimum_elementor_version() {
