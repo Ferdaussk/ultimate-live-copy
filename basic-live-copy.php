@@ -91,7 +91,7 @@ class ClassULTLCElementorP {
 	}
 
     public function get_name() {
-        return 'bwdproeb-threed-text';
+        return 'ultlc-threed-text';
     }
 
     public static function ultlc_register_controls(Element_Base $section) {
@@ -367,17 +367,17 @@ class ClassULTLCElementorP {
     }
     // ============ End live copy =============//
 
-    public function bwdproeb_live_copy_enqueue_scripts(){
+    public function ultlc_live_copy_enqueue_scripts(){
         wp_enqueue_style('live-copy-style-min-loaded', plugin_dir_url(__FILE__).'assets/public/css/live-copy.min.css',null,'1.0','all');
     }
 
-    public function bwdproeb_admin_live_copy_enqueue_scripts(){
+    public function ultlc_admin_live_copy_enqueue_scripts(){
         wp_enqueue_style('icon-live-copy-style-min-loaded', plugin_dir_url(__FILE__).'assets/admin/css/icon.css',null,'1.0','all');
     }
 
     public function __construct() {
-        add_action('wp_enqueue_scripts', [$this, 'bwdproeb_live_copy_enqueue_scripts']);
-        add_action('elementor/editor/before_enqueue_scripts', [$this, 'bwdproeb_admin_live_copy_enqueue_scripts']);
+        add_action('wp_enqueue_scripts', [$this, 'ultlc_live_copy_enqueue_scripts']);
+        add_action('elementor/editor/before_enqueue_scripts', [$this, 'ultlc_admin_live_copy_enqueue_scripts']);
     }
 }
 
