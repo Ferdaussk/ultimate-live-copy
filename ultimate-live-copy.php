@@ -14,9 +14,6 @@
 
 if ( ! defined( 'ABSPATH' ) ) exit; // Exit if accessed directly
 
-function ultlc_elementor() {
-	return \Elementor\Plugin::instance();
-}
 define("ultlc_THE_PLUGIN_FILE", __FILE__);
 require_once ( plugin_dir_path(ultlc_THE_PLUGIN_FILE) ) . '/includes/requires-check.php';
 final class ultlcElementorPlugiN {

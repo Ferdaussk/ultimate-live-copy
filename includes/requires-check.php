@@ -45,3 +45,7 @@ function ultlc_addon_install() {
 	$installed_plugins = get_plugins();
 	return isset($installed_plugins[$file_path]);
 }
+
+function ultlc_elementor() {
+	return \Elementor\Plugin::instance();
+}
