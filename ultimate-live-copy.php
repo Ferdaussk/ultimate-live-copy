@@ -59,7 +59,7 @@ final class ultlcElementorPlugiN {
 
 		$message = sprintf(
 			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'ultimate-live-copy' ),
-			'<strong>' . esc_html__( 'Elementor Extention', 'ultimate-live-copy' ) . '</strong>',
+			'<strong>' . esc_html__( 'Ultimate Live Copy', 'ultimate-live-copy' ) . '</strong>',
 			'<strong>' . esc_html__( 'Elementor', 'ultimate-live-copy' ) . '</strong>',
 			self::MINIMUM_ELEMENTOR_VERSION
 		);
@@ -73,7 +73,7 @@ final class ultlcElementorPlugiN {
 
 		$message = sprintf(
 			esc_html__( '"%1$s" requires "%2$s" version %3$s or greater.', 'ultimate-live-copy' ),
-			'<strong>' . esc_html__( 'Elementor Extention', 'ultimate-live-copy' ) . '</strong>',
+			'<strong>' . esc_html__( 'Ultimate Live Copy', 'ultimate-live-copy' ) . '</strong>',
 			'<strong>' . esc_html__( 'PHP', 'ultimate-live-copy' ) . '</strong>',
 			self::MINIMUM_PHP_VERSION
 		);
