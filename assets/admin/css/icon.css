@@ -1,0 +1,8 @@
+.elementor-control-_section_ultlc_live_copy .elementor-panel-heading-title, .elementor-control-_section_ultlc_live_copy i {
+    background: linear-gradient(90deg, #f441a5, #03a9f4);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: bold;
+    font-size: 14px;
+}
