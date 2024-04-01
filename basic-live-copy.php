@@ -108,18 +108,63 @@ class ClassULTLCElementorP {
 			]
 		);
         
-        // $section->add_control(
-        //     'ultlc_btn_align',
-        //     [
-        //         'label' => esc_html__( 'Alignment', 'ultimate-live-copy' ),
-        //         'type' => \Elementor\Controls_Manager::SELECT,
-        //         'options' => [
-        //             'left' => esc_html__( 'Left', 'ultimate-live-copy' ),
-        //             'right' => esc_html__( 'Right', 'ultimate-live-copy' ),
-        //         ],
-        //         'default' => 'left', // Default alignment
-        //     ]
-        // );
+        $section->add_control(
+			'ultlc_live_copy_display',
+			[
+				'label' => esc_html__( 'Hover?', 'ultimate-live-copy' ),
+				'type' => \Elementor\Controls_Manager::CHOOSE,
+				'options' => [
+					'none' => [
+						'title' => esc_html__( 'Hover', 'ultimate-live-copy' ),
+						'icon' => 'eicon-check-circle-o',
+					],
+					'block' => [
+						'title' => esc_html__( 'Fixed', 'ultimate-live-copy' ),
+						'icon' => 'eicon-ban',
+					],
+				],
+				'toggle' => true,
+				'selectors' => [
+					'.e-con > .ultlc-live-copy-wrap' => 'display: {{VALUE}};',
+				],
+			]
+		);
+        $section->add_control(
+			'ultlc_live_copy_left',
+			[
+				'label' => esc_html__( 'Left', 'ultimate-live-copy' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 1,
+					],
+                ],
+				'selectors' => [
+					'.e-con > .ultlc-live-copy-wrap' => 'left: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
+        $section->add_control(
+			'ultlc_live_copy_right',
+			[
+				'label' => esc_html__( 'Right', 'ultimate-live-copy' ),
+				'type' => Controls_Manager::SLIDER,
+				'size_units' => [ 'px' ],
+				'range' => [
+					'px' => [
+						'min' => 0,
+						'max' => 1000,
+						'step' => 1,
+					],
+                ],
+				'selectors' => [
+					'.e-con > .ultlc-live-copy-wrap' => 'right: {{SIZE}}{{UNIT}};',
+				],
+			]
+		);
 		$section->add_responsive_control(
 			'_ultlc_live_copy_btn_padding',
 			[
@@ -266,7 +311,6 @@ class ClassULTLCElementorP {
             .e-con > .ultlc-live-copy-wrap {
                 position: absolute;
                 top: 50%;
-                left: 0;
                 z-index: 99999;
                 text-decoration: none;
                 font-size: 15px;
@@ -274,6 +318,7 @@ class ClassULTLCElementorP {
                 border-radius: 4px;
             }
             .ultlc-live-copy-wrap .ultlc-live-copy-btn {
+				display: block;
                 padding: 8px 12px;
                 border-radius: 4px;
                 background: #007bff;
@@ -295,6 +340,14 @@ class ClassULTLCElementorP {
                 box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3);
                 cursor: pointer;
             }
+			.elementor-section-wrap>.elementor-section.live-copy-preview .ultlc-live-copy-wrap,
+			.elementor-section.elementor-top-section.live-copy-preview .ultlc-live-copy-wrap,
+			.elementor-section-wrap>.elementor-section:not(.elementor-element-edit-mode):hover .ultlc-live-copy-wrap,
+			.elementor-section.elementor-top-section:not(.elementor-element-edit-mode):hover .ultlc-live-copy-wrap,
+			.e-container:not(.elementor-element-edit-mode):hover .ultlc-live-copy-wrap,
+			.e-con:not(.elementor-element-edit-mode):hover .ultlc-live-copy-wrap {
+				display: block
+			}
         </style>";
     }
 
@@ -367,16 +420,11 @@ class ClassULTLCElementorP {
     }
     // ============ End live copy =============//
 
-    public function ultlc_live_copy_enqueue_scripts(){
-        wp_enqueue_style('live-copy-style-min-loaded', plugin_dir_url(__FILE__).'assets/public/css/live-copy.min.css',null,'1.0','all');
-    }
-
     public function ultlc_admin_live_copy_enqueue_scripts(){
         wp_enqueue_style('icon-live-copy-style-min-loaded', plugin_dir_url(__FILE__).'assets/admin/css/icon.css',null,'1.0','all');
     }
 
     public function __construct() {
-        add_action('wp_enqueue_scripts', [$this, 'ultlc_live_copy_enqueue_scripts']);
         add_action('elementor/editor/before_enqueue_scripts', [$this, 'ultlc_admin_live_copy_enqueue_scripts']);
     }
 }

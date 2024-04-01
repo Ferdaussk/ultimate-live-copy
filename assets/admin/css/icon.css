@@ -1,4 +1,5 @@
-.elementor-control-_section_ultlc_live_copy .elementor-panel-heading-title, .elementor-control-_section_ultlc_live_copy i {
+.elementor-control-_section_ultlc_live_copy .elementor-panel-heading-title, .elementor-control-_section_ultlc_live_copy i,
+.elementor-context-menu-list__group-ultlcx-clipboard .elementor-context-menu-list__item__title, .elementor-context-menu-list__group-ultlcx-clipboard .elementor-context-menu-list__item__shortcut {
     background: linear-gradient(90deg, #f441a5, #03a9f4);
     background-clip: text;
     -webkit-background-clip: text;
